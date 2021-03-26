@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
+import PropTypes from 'prop-types'
 
 function ChangeMe(props) {
+  const { index, ...other } = props
   const [val,setVal] = useState('')
 
   useEffect(() => {
@@ -10,6 +12,8 @@ function ChangeMe(props) {
   return ('')
   
 }
-
+ChangeMe.propTypes = {
+  index: PropTypes.any.isRequired,
+};
 
 export default ChangeMe
