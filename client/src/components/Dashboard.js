@@ -15,6 +15,7 @@ import RPMGauge from './RPMGauge'
 //import BottomNav from './BottomNav'
 import StickyFooter from './StickyFooter'
 import TitleBar from './TitleBar'
+import RenderChart from './RenderChart'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,15 +60,16 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <CssBaseline />
+      <TitleBar />
       <Container component="main" className={classes.main} maxWidth="sm">
-        <TitleBar />
+        
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={8} lg={9}>
-                <Paper className={fixedHeightPaper}>
-                  <p>chart</p>
+                <Paper className={classes.paper}>
+                  <RenderChart />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
