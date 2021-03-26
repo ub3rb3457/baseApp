@@ -26,3 +26,16 @@ cd .. && npm run dev
 You will need to change the variables at the top of server.js [server port, serial port & baud rate] - to suit your needs. 
 
 If you choose to use a different port you must also change the ENDPOINT constant in the RPMGauge component located at client/src/components/RPMGauge.js
+
+## Credits
+
+* node
+* react
+* express
+* socket.io & socket.io-client
+* serialport
+* @material-ui/core
+* react-d3-speedometer
+* recharts
+* react-numeric-input
+* more to come...
