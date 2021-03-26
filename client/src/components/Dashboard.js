@@ -83,7 +83,7 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Container component="main" className={classes.main} maxWidth="sm"></Container>
+      <Container component="main" className={classes.main} maxWidth="sm">
         <AppBar position="absolute" className={classes.appBar}>
           <Toolbar className={classes.toolbar}>
             <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
@@ -120,8 +120,8 @@ export default function Dashboard() {
               </Grid>
             </Grid>   
           </Container>
-        <Container />
-      </main>      
+        </main> 
+      </Container>
       <StickyFooter /> 
     </div>
   );
