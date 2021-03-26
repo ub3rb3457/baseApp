@@ -14,6 +14,7 @@ import TitleBar from './TitleBar';
 import SpeedIcon from '@material-ui/icons/Speed';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import FolderSpecialIcon from '@material-ui/icons/FolderSpecial';
+import MaterialsCoverFlow from './MaterialsCoverFlow';
 
 
 function TabPanel(props) {
@@ -104,7 +105,7 @@ export default function FullWidthTabs() {
           <RPMGauge />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          Item Three
+          <MaterialsCoverFlow />
         </TabPanel>
       </SwipeableViews>
     </div>

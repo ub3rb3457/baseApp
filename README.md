@@ -39,5 +39,6 @@ If you choose to use a different port you must also change the ENDPOINT constant
 * react-swipeable-views
 * react-d3-speedometer
 * recharts
+* react-coverflow
 * react-numeric-input
 * more to come...

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-function ChangeMe(props) {
+function ChangeMe() {
   const [val,setVal] = useState('')
 
   useEffect(() => {
