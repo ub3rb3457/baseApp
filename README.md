@@ -35,6 +35,8 @@ If you choose to use a different port you must also change the ENDPOINT constant
 * socket.io & socket.io-client
 * serialport
 * @material-ui/core
+* prop-types
+* react-swipeable-views
 * react-d3-speedometer
 * recharts
 * react-numeric-input
