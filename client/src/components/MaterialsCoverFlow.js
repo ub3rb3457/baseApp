@@ -18,8 +18,6 @@ function MaterialsCoverFlow(props) {
       enableHeading={false}
     >
       <CoverFlowItems />
-      <img src='' alt='' data-action="http://andyyou.github.io/react-coverflow/"/>
-      <img src='' alt='' data-action="http://andyyou.github.io/react-coverflow/"/>
     </Coverflow>
   )
   
