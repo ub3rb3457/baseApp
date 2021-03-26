@@ -1,9 +1,9 @@
 import React from 'react'
-import Dashboard from './components/Dashboard'
+import FullWidthTabs from './components/FullWidthTabs';
 
 function App(){
   return (
-    <Dashboard />
+    <FullWidthTabs />
   )
   
 }
