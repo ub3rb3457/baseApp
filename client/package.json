@@ -8,6 +8,7 @@
     "@material-ui/icons": "^4.11.2",
     "clsx": "^1.1.1",
     "react": "^16.8.2",
+    "react-coverflow": "^0.2.20",
     "react-d3-speedometer": "^1.0.1",
     "react-dom": "^16.8.2",
     "react-numeric-input": "^2.2.3",
