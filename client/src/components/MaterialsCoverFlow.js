@@ -22,13 +22,13 @@ function MaterialsCoverFlow(props) {
         tabIndex="0"
       >
         <img
-          src='[image/path/please_change]'
+          src=''
           alt='title or description'
           style={{ display: 'block', width: '100%' }}
         />
       </div>
-      <img src='[image/path/please_change]' alt='title or description' data-action="http://andyyou.github.io/react-coverflow/"/>
-      <img src='[image/path/please_change]' alt='title or description' data-action="http://andyyou.github.io/react-coverflow/"/>
+      <img src='' alt='title or description' data-action="http://andyyou.github.io/react-coverflow/"/>
+      <img src='' alt='title or description' data-action="http://andyyou.github.io/react-coverflow/"/>
     </Coverflow>
   )
   
