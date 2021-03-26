@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { makeStyles } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import { BottomNavigation } from '@material-ui/core'
 import { BottomNavigationAction } from '@material-ui/core'
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import FolderSpecialIcon from '@material-ui/icons/FolderSpecial';
 import SpeedIcon from '@material-ui/icons/Speed';
