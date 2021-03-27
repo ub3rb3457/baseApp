@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import Coverflow from 'react-coverflow'
-import CoverFlowItems from './CoverFlowItems'
+
 
 function MaterialsCoverFlow(props) {
   const [val,setVal] = useState('')
@@ -17,7 +17,18 @@ function MaterialsCoverFlow(props) {
       navigation={false}
       enableHeading={false}
     >
-      <CoverFlowItems />
+      <div
+        role="menuitem"
+        tabIndex="0"
+      >
+        <img
+          src='https://via.placeholder.com/150'
+          alt='#'
+          style={{ display: 'block', width: '100%' }}
+        />
+      </div>
+      <img src='https://via.placeholder.com/150' alt='#' data-action="http://andyyou.github.io/react-coverflow/"/>
+      <img src='https://via.placeholder.com/150' alt='#' data-action="http://andyyou.github.io/react-coverflow/"/>
     </Coverflow>
   )
   

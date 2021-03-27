@@ -99,10 +99,10 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <RenderChart />
+          <RPMGauge />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <RPMGauge />
+          <RenderChart />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           <MaterialsCoverFlow />

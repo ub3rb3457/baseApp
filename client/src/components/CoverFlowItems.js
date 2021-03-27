@@ -8,19 +8,7 @@ function CoverFlowItems(props) {
   useEffect(() => {
     
   },[])//adding the array as a 2nd parameter ensures the effect is applied once per render
-  return (
-    <div>
-      <div role="menuitem" tabIndex="0">
-        <img
-          src=''
-          alt=''
-          style={{ display: 'block', width: '100%' }}
-        />
-      </div>
-      <img src='' alt='' data-action="http://andyyou.github.io/react-coverflow/"/>
-      <img src='' alt='' data-action="http://andyyou.github.io/react-coverflow/"/>
-    </div>
-  )
+  return ('')
   
 }
 CoverFlowItems.propTypes = { //assurance that data passed in is the correct type
