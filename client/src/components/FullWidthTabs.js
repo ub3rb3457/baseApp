@@ -8,7 +8,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import RenderChart from './RenderChart';
+import CanvasChart from './CanvasChart';
 import RPMGauge from './RPMGauge';
 import TitleBar from './TitleBar';
 import SpeedIcon from '@material-ui/icons/Speed';
@@ -102,7 +102,7 @@ export default function FullWidthTabs() {
           <RPMGauge />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <RenderChart />
+          <CanvasChart />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           <MaterialsCoverFlow />
