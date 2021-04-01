@@ -9,8 +9,8 @@
     "api": "cd api && npm run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run api\""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "b3457m0d3",
+  "license": "MPL-2.0",
   "dependencies": {
     "concurrently": "^6.0.0",
     "express": "^4.16.4",
