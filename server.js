@@ -1,6 +1,7 @@
-const http_port = 4001
-const serial_port = "/dev/ttyUSB0"
-const baud_rate = 9600
+require("dotenv").config();
+const http_port = process.env.HTTP_PORT
+const serial_port = process.env.SERIAL_PORT
+const baud_rate = process.env.BAUD_RATE
 
 const express = require('express')
 const http = require('http')
