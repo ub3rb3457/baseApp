@@ -32,6 +32,7 @@ If you choose to use a different port you must also change the ENDPOINT constant
 * node
 * react
 * express
+* [rest-api-nodejs-mongodb](https://github.com/maitraysuthar/rest-api-nodejs-mongodb)
 * socket.io & socket.io-client
 * serialport
 * @material-ui/core
