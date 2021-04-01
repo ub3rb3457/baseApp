@@ -68,33 +68,27 @@ exports.logDetail = [
 
 /**
  * Log record.
- * 
  * @param {number}      rpm 
- * 
  * @returns {Object}
  */
 exports.logRecord = [
 	auth,
 	sanitizeBody("*").escape(),
-	(req, res) => {
-		try {
-			const errors = validationResult(req);
-			var log = new Log({ rpm: req.body.rpm });
-			if (!errors.isEmpty()) {
-				return apiResponse.validationErrorWithData(res, "Validation Error.", errors.array());
-			} else {
-				//Save log.
-				log.save(function (err) {
-					if (err) { return apiResponse.ErrorResponse(res, err); }
-					let logData = new LogData(log);
-					return apiResponse.successResponseWithData(res,"Log added successfully.", logData);
-				});
-			}
-		} catch (err) {
-			//throw error in json response with status 500. 
-			return apiResponse.ErrorResponse(res, err);
+	(req, res) => { try {	
+		const errors = validationResult(req);
+		var log = new Log({ rpm: req.body.rpm });
+		if (!errors.isEmpty()) {
+			return apiResponse.validationErrorWithData(res, "Validation Error.", errors.array());
+		} else {//Save log.
+			log.save(function (err) {
+				if (err) { return apiResponse.ErrorResponse(res, err); }
+				let logData = new LogData(log);
+				return apiResponse.successResponseWithData(res,"Log added successfully.", logData);
+			});
 		}
-	}
+	} catch (err) {//throw error in json response with status 500. 
+		return apiResponse.ErrorResponse(res, err);
+	}}
 ];
 
 /**
