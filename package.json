@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "client": "npm start --prefix client",
-    "api": "nodemon ./bin/www --prefix api",
-    "dev": "concurrently \"node server.js\" \"npm run client\" \"npm run api\""
+    "server":"node server.js",
+    "api": "cd api && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run api\""
   },
   "author": "",
   "license": "ISC",
