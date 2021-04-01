@@ -54,7 +54,7 @@ exports.bookDetail = [
 	}
 ];
 
-/** Book store.
+/** Create Book.
  * @param {string}      title 
  * @param {string}      description
  * @param {string}      isbn
@@ -97,7 +97,7 @@ exports.bookStore = [
 	}
 ];
 
-/** Book update.
+/** Update Book.
  * @param {string}      title 
  * @param {string}      description
  * @param {string}      isbn
@@ -154,7 +154,7 @@ exports.bookUpdate = [
 	}
 ];
 
-/** Book Delete.
+/** Delete Book.
  * @param {string}      id
  * @returns {Object}
  */

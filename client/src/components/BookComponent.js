@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import BookView from './BookView'
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1NDVlZGIxN2NkMTJkYzUwODU2YjUiLCJmaXJzdE5hbWUiOiJKZXNzaWUiLCJsYXN0TmFtZSI6IlRheWxvciIsImVtYWlsIjoicGVyY2hhbmNlMmRyZWFtODZAZ21haWwuY29tIiwiaWF0IjoxNjE3MjQ5OTk3LCJleHAiOjE2MTcyNTcxOTd9.lsXXHENotYV17fD6dKeboppxxkfKk4uVxjtERR8pSio"
 
 class BookComponent extends Component {
 	constructor(props) {
@@ -14,21 +15,17 @@ class BookComponent extends Component {
     fetch("http://localhost:1337/api/book", {
         "method": "GET",
         "headers": {
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1NDVlZGIxN2NkMTJkYzUwODU2YjUiLCJmaXJzdE5hbWUiOiJKZXNzaWUiLCJsYXN0TmFtZSI6IlRheWxvciIsImVtYWlsIjoicGVyY2hhbmNlMmRyZWFtODZAZ21haWwuY29tIiwiaWF0IjoxNjE3MjQ5OTk3LCJleHAiOjE2MTcyNTcxOTd9.lsXXHENotYV17fD6dKeboppxxkfKk4uVxjtERR8pSio",
+          "Authorization": "Bearer "+ token,
         }
       }).then(response => response.json()).then(response => {
         let books = response.data
-        //add the response to the state
-        this.setState({ books: books })
-      })
-      .catch(err => { console.log(err); 
+        this.setState({ books: books }) //add the response to the state
+      }).catch(err => { console.log(err); 
     });
 	}
 	
 	render() {
-		return (
-		  <BookView books={this.state.books}/>
-		);
+		return ( <BookView books={this.state.books}/> );
 	}
 }
 

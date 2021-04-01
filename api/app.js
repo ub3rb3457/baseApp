@@ -25,10 +25,9 @@ mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true 
 var db = mongoose.connection;
 var app = express();
 
-//don't show the log when it is test
-if(process.env.NODE_ENV !== "test") {
-	app.use(logger("dev"));
-}
+//don't show the log when testing
+if(process.env.NODE_ENV !== "test") app.use(logger("dev"));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -47,9 +46,7 @@ app.all("*", function(req, res) {
 });
 
 app.use((err, req, res) => {
-	if(err.name == "UnauthorizedError"){
-		return apiResponse.unauthorizedResponse(res, err.message);
-	}
+	if(err.name == "UnauthorizedError") return apiResponse.unauthorizedResponse(res, err.message);
 });
 
 module.exports = app;
