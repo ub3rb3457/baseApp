@@ -1,9 +1,10 @@
 import React from 'react'
-import BookComponent from './components/BookComponent';
+import FullWidthTabs from './components/FullWidthTabs'
+import Login from './components/Auth/Login'
 
 function App(){
   return (
-    <BookComponent />
+    <Login />
   )
   
 }

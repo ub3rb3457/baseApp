@@ -23,9 +23,10 @@ cd .. && npm run dev
 * A potentiometer (to simulate RPM)
 * The patience of a Saint
 
-You will need to change the variables at the top of server.js [server port, serial port & baud rate] - to suit your needs. 
-
-If you choose to use a different port you must also change the ENDPOINT constant in the RPMGauge component located at client/src/components/RPMGauge.js
+You will need to customize the .env configuration files, there's one for each app:
+* The REST API Server
+* The Serial/Socket Server
+* && The React Front-end
 
 ## Credits
 

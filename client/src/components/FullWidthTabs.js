@@ -102,7 +102,7 @@ export default function FullWidthTabs() {
           <RPMGauge />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <CanvasChart />
+          
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           <MaterialsCoverFlow />

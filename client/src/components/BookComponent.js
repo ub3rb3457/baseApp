@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import BookView from './BookView'
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1NDVlZGIxN2NkMTJkYzUwODU2YjUiLCJmaXJzdE5hbWUiOiJKZXNzaWUiLCJsYXN0TmFtZSI6IlRheWxvciIsImVtYWlsIjoicGVyY2hhbmNlMmRyZWFtODZAZ21haWwuY29tIiwiaWF0IjoxNjE3MjQ5OTk3LCJleHAiOjE2MTcyNTcxOTd9.lsXXHENotYV17fD6dKeboppxxkfKk4uVxjtERR8pSio"
+
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY1NDVlZGIxN2NkMTJkYzUwODU2YjUiLCJmaXJzdE5hbWUiOiJKZXNzaWUiLCJsYXN0TmFtZSI6IlRheWxvciIsImVtYWlsIjoicGVyY2hhbmNlMmRyZWFtODZAZ21haWwuY29tIiwiaWF0IjoxNjE3MjY2ODUyLCJleHAiOjE2MTcyNzQwNTJ9.a1OsJ3I71sF4Z8T4UJby7HzihbYOQfs3Tv9clCxIwWI'
 
 class BookComponent extends Component {
 	constructor(props) {
@@ -11,8 +12,7 @@ class BookComponent extends Component {
 	
 	//Life-Cycle Methods
 	componentDidMount() { // called after the initial render
-		// read all entities
-    fetch("http://localhost:1337/api/book", {
+    fetch("http://localhost:1337/api/book", {// read all entries
         "method": "GET",
         "headers": {
           "Authorization": "Bearer "+ token,
@@ -33,14 +33,7 @@ BookComponent.propTypes = {
 	title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   isbn: PropTypes.string.isRequired 
-	/*******Valid PropType values***************
-	* any, array, bool, func, number, object, symbol
-	* node, element, elementType, instanceOf(ClassName)
-	* oneOf(arrayOfItems), oneOfType(arrayOfPropTypes)
-	* arrayOf(PropType), objectOf(PropType)
-	* adding '.isRequired' to the end of the PropType makes it required
-	*********************************************/
-  }
+}
 
 
 export default BookComponent
