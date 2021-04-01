@@ -41,38 +41,28 @@ exports.register = [
 	sanitizeBody("password").escape(),
 	// Process request after validation and sanitization.
 	(req, res) => {
-		try {
-			// Extract the validation errors from a request.
+		try { // Extract the validation errors from a request.
 			const errors = validationResult(req);
-			if (!errors.isEmpty()) {
-				// Display sanitized values/errors messages.
+			if (!errors.isEmpty()) { // Display sanitized values/errors messages.
 				return apiResponse.validationErrorWithData(res, "Validation Error.", errors.array());
-			}else {
-				//hash input password
-				bcrypt.hash(req.body.password,10,function(err, hash) {
-					// generate OTP for confirmation
-					let otp = utility.randomNumber(4);
-					// Create User object with escaped and trimmed data
-					var user = new UserModel(
-						{
-							firstName: req.body.firstName,
-							lastName: req.body.lastName,
-							email: req.body.email,
-							password: hash,
-							confirmOTP: otp
-						}
-					);
-					// Html email body
-					let html = "<p>Please Confirm your Account.</p><p>OTP: "+otp+"</p>";
-					// Send confirmation email
-					mailer.send(
+			}else { 
+				bcrypt.hash(req.body.password,10,function(err, hash) {//hash input password
+					let otp = utility.randomNumber(4);// generate OTP for confirmation
+					var user = new UserModel({ // Create User object with escaped and trimmed data
+						firstName: req.body.firstName,
+						lastName: req.body.lastName,
+						email: req.body.email,
+						password: hash,
+						confirmOTP: otp
+					});
+					let html = "<p>Please Confirm your Account.</p><p>OTP: "+otp+"</p>";// Html email body
+					mailer.send( // Send confirmation email
 						constants.confirmEmails.from, 
 						req.body.email,
 						"Confirm Account",
 						html
 					).then(function(){
-						// Save user.
-						user.save(function (err) {
+						user.save(function (err) { // Save user.
 							if (err) { return apiResponse.ErrorResponse(res, err); }
 							let userData = {
 								_id: user._id,
@@ -89,17 +79,13 @@ exports.register = [
 				});
 			}
 		} catch (err) {
-			//throw error in json response with status 500.
-			return apiResponse.ErrorResponse(res, err);
+			return apiResponse.ErrorResponse(res, err); //throw error in json response with status 500.
 		}
 	}];
 
-/**
- * User login.
- *
+/**User login.
  * @param {string}      email
  * @param {string}      password
- *
  * @returns {Object}
  */
 exports.login = [
@@ -113,49 +99,32 @@ exports.login = [
 			const errors = validationResult(req);
 			if (!errors.isEmpty()) {
 				return apiResponse.validationErrorWithData(res, "Validation Error.", errors.array());
-			}else {
+			} else {
 				UserModel.findOne({email : req.body.email}).then(user => {
 					if (user) {
-						//Compare given password with db's hash.
-						bcrypt.compare(req.body.password,user.password,function (err,same) {
+						bcrypt.compare(req.body.password,user.password,function (err,same) { //Compare given password with db's hash.
 							if(same){
-								//Check account confirmation.
-								if(user.isConfirmed){
-									// Check User's account active or not.
-									if(user.status) {
+								if(user.isConfirmed){//Check account confirmation.
+									if(user.status) { // Check User's account active or not.
 										let userData = {
 											_id: user._id,
 											firstName: user.firstName,
 											lastName: user.lastName,
 											email: user.email,
 										};
-										//Prepare JWT token for authentication
-										const jwtPayload = userData;
-										const jwtData = {
-											expiresIn: process.env.JWT_TIMEOUT_DURATION,
-										};
+										const jwtPayload = userData;//Prepare JWT token for authentication
+										const jwtData = { expiresIn: process.env.JWT_TIMEOUT_DURATION, };
 										const secret = process.env.JWT_SECRET;
-										//Generated JWT token with Payload and secret.
-										userData.token = jwt.sign(jwtPayload, secret, jwtData);
+										userData.token = jwt.sign(jwtPayload, secret, jwtData); //Generated JWT token with Payload and secret.
 										return apiResponse.successResponseWithData(res,"Login Success.", userData);
-									}else {
-										return apiResponse.unauthorizedResponse(res, "Account is not active. Please contact admin.");
-									}
-								}else{
-									return apiResponse.unauthorizedResponse(res, "Account is not confirmed. Please confirm your account.");
-								}
-							}else{
-								return apiResponse.unauthorizedResponse(res, "Email or Password wrong.");
-							}
+									}else return apiResponse.unauthorizedResponse(res, "Account is not active. Please contact admin.");
+								} else return apiResponse.unauthorizedResponse(res, "Account is not confirmed. Please confirm your account.");
+							} else return apiResponse.unauthorizedResponse(res, "Email or Password wrong.");
 						});
-					}else{
-						return apiResponse.unauthorizedResponse(res, "Email or Password wrong.");
-					}
+					} else return apiResponse.unauthorizedResponse(res, "Email or Password wrong.");
 				});
 			}
-		} catch (err) {
-			return apiResponse.ErrorResponse(res, err);
-		}
+		} catch (err) { return apiResponse.ErrorResponse(res, err); }
 	}];
 
 /**

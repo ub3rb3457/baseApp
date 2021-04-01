@@ -1,4 +1,5 @@
 import React, { useReducer, useState }  from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -10,11 +11,20 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from 'axios'
 axios.defaults.baseURL = 'http://localhost:1337/api/auth/';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+function stop(event){
+  event.preventDefault();
+}
+function formReducer(state, event){
+    return {
+      ...state,
+      [event.name]: event.value
+    }
+}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,19 +46,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-const formReducer = (state, event) => {
-  return {
-    ...state,
-    [event.name]: event.value
-  }
-}
-export default function SignIn() {
+export default function Login() {
   const [formData, setFormData] = useReducer(formReducer, {});
   const [submitting, setSubmitting] = useState(false);
   const classes = useStyles();
   const handleSubmit = event => {
-    event.preventDefault();
+    stop(event);
     setSubmitting(true);
     
     // Make a Post Request
@@ -101,7 +104,7 @@ export default function SignIn() {
             onChange={handleChange}
           />
           <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
+            control={<Checkbox name="checkBox" value="remember" color="primary" />}
             label="Remember me"
           />
           <Button
