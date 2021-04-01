@@ -1,9 +1,9 @@
 import React from 'react'
-import FullWidthTabs from './components/FullWidthTabs';
+import BookComponent from './components/BookComponent';
 
 function App(){
   return (
-    <FullWidthTabs />
+    <BookComponent />
   )
   
 }
