@@ -36,6 +36,7 @@ You will need to customize the .env configuration files, there's one for each ap
 * [rest-api-nodejs-mongodb](https://github.com/maitraysuthar/rest-api-nodejs-mongodb)
 * socket.io & socket.io-client
 * serialport
+* mongoose
 * @material-ui/core
 * react-axios
 * prop-types

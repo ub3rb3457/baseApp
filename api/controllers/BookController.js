@@ -14,7 +14,7 @@ function BookData(data) {
 	this.isbn = data.isbn;
 	this.createdAt = data.createdAt;
 }
-/**Book List.
+/**Book List. 
  * @returns {Object}
  */
 exports.bookList = [
