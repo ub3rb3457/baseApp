@@ -1,7 +1,6 @@
 const http_port = 4001
 const serial_port = '/dev/ttyUSB0'
 const baud_rate = 9600
-
 const express = require('express')
 const http = require('http')
 const socketIO = require('socket.io')
@@ -11,7 +10,6 @@ const parser = new sp_readline()
 const sPort = new serialport(serial_port, { baudRate: baud_rate })
 sPort.pipe(parser);
 const app = express()
-
 const server = http.createServer(app) // grab a server instance
 const io = socketIO(server) // This creates our socket using the server instance
 io.on('connection', socket => { // once the socket has connected
@@ -22,5 +20,4 @@ io.on('connection', socket => { // once the socket has connected
   })
   socket.on('disconnect', () => { }) // disconnect is fired when a client leaves the server
 })
-
 server.listen(http_port, () => console.log(`Serial Socket connected @ port ${http_port}`))

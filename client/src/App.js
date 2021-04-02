@@ -1,10 +1,8 @@
 import React from 'react'
-import RPMGauge from './components/RPMGauge'
-
+import Login from './components/Auth/Login'
 function App(){
   return (
-    <RPMGauge />
+    <Login />
   )
-  
 }
 export default App;

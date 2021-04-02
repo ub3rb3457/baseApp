@@ -52,14 +52,11 @@ export default function Register() {
   const handleSubmit = event => {
 	stop(event);
 	setSubmitting(true);
-    
     // Make a Post Request
     axios.post('register', formData).then(function (response) {
       console.log(response.data.data);
     });
-    
   }
-  
   const handleChange = event => {
     const isCheckbox = event.target.type === 'checkbox';
     setFormData({

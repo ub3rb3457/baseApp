@@ -16,8 +16,8 @@ import axios from 'axios'
 axios.defaults.baseURL = 'http://localhost:1337/api/auth/';
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
-function stop(event){
-  event.preventDefault();
+function stop(e){
+  e.preventDefault();
 }
 function formReducer(state, event){
     return {
@@ -46,9 +46,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+function Login() {
   const [formData, setFormData] = useReducer(formReducer, {});
   const [submitting, setSubmitting] = useState(false);
+  const [loggedIn, setStatus] = useState(false);
   const classes = useStyles();
   const handleSubmit = event => {
     stop(event);
@@ -56,7 +57,11 @@ export default function Login() {
     
     // Make a Post Request
     axios.post('login', formData).then(function (response) {
-      console.log(response.data.data);
+      let data = response.data
+      if ( data.status > 1 ){
+        Window.localStorage.setItem('token',) 
+        setStatus(true)
+      }
     });
     
   }
@@ -145,3 +150,4 @@ export default function Login() {
     </Container>
   );
 }
+export default Login

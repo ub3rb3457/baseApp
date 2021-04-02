@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import useSocket from "use-socket.io-client"
 import ReactSpeedometer from "react-d3-speedometer"
 function RPMGauge() {
