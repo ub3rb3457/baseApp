@@ -71,21 +71,19 @@ export default function Register() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
+        <Typography component="h1" variant="h5"> Sign up </Typography>
         <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
+              <TextField                
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
                 label="First Name"
-				onChange={handleChange}
+                name="firstName"
+                autoComplete="fname"
+                onChange={handleChange}
                 autoFocus
               />
             </Grid>
@@ -96,9 +94,9 @@ export default function Register() {
                 fullWidth
                 id="lastName"
                 label="Last Name"
-				onChange={handleChange}
                 name="lastName"
                 autoComplete="lname"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -108,9 +106,9 @@ export default function Register() {
                 fullWidth
                 id="email"
                 label="Email Address"
-				onChange={handleChange}
                 name="email"
                 autoComplete="email"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -118,12 +116,12 @@ export default function Register() {
                 variant="outlined"
                 required
                 fullWidth
-                name="password"
-                label="Password"
-				onChange={handleChange}
-                type="password"
                 id="password"
+                label="Password"
+                name="password"
+                type="password"
                 autoComplete="current-password"
+                onChange={handleChange}
               />
             </Grid>
             <Grid item xs={12}>
