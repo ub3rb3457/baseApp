@@ -1,8 +1,8 @@
 import React from 'react'
-import { matchRoutes, renderRoutes } from "react-router-config";
+//import { matchRoutes, renderRoutes } from "react-router-config";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div>
@@ -19,8 +19,6 @@ function App() {
             </li>
           </ul>
         </nav>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/about">
             <About />
