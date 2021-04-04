@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, createReducer } from '@reduxjs/toolkit'
 
 export default configureStore({
   reducer: {},

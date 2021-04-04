@@ -1,5 +1,4 @@
 import React from 'react'
-//import { matchRoutes, renderRoutes } from "react-router-config";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
