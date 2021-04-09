@@ -37,6 +37,7 @@ You will need to customize the .env configuration files, there's one for each ap
 * socket.io & socket.io-client
 * serialport
 * mongoose
+* zustand
 * @material-ui/core
 * react-axios
 * prop-types

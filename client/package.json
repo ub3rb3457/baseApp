@@ -30,10 +30,12 @@
     "recharts": "^2.0.9",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "redux-toolkit": "^1.1.2",
     "socket.io-client": "^2.2.0",
     "styled-components": "^5.2.3",
     "use-axios-request": "^0.4.0",
-    "use-socket.io-client": "^1.1.0"
+    "use-socket.io-client": "^1.1.0",
+    "zustand": "^3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

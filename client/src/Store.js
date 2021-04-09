@@ -1,5 +1,8 @@
-import { configureStore, createReducer } from '@reduxjs/toolkit'
+import create from 'zustand'
 
-export default configureStore({
-  reducer: {},
-})
+const useStore = create((set) => ({
+  count: 1,
+  inc: () => set((state) => ({ count: state.count + 1 })),
+}))
+
+export default useStore

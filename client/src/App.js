@@ -1,7 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import RPMGauge from './RPMGauge'
+import useStore from './Store'
+import Boom from './x'
 
 const App = () => {
+  const { count, inc } = useStore()
   return (
     <Router>
       <div>
@@ -20,13 +24,15 @@ const App = () => {
         </nav>
         <Switch>
           <Route path="/about">
-            <About />
+            <p>{count}</p>
+            <button onClick={inc}>One Up</button>
           </Route>
           <Route path="/users">
-            <Users />
+            <Boom />
           </Route>
           <Route path="/">
-            <Home />
+            <RPMGauge />
+            
           </Route>
         </Switch>
       </div>
