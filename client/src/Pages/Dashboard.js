@@ -1,6 +1,5 @@
 import React from 'react'
 import clsx from 'clsx'
-import { makeStyles } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
@@ -8,40 +7,8 @@ import Paper from '@material-ui/core/Paper'
 import RPMGauge from './RPMGauge'
 import StickyFooter from './StickyFooter'
 import RenderChart from './RenderChart'
+import useStyles from './Components/styles'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '100vh',
-  },
-  main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2),
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-  },
-  fixedHeight: {
-    height: 240,
-  },
-  noScroll: {
-    overflow: 'hidden',
-  },
-  footer: {
-    padding: theme.spacing(3, 2),
-    marginTop: 'auto',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
-  },
-}));
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -72,6 +39,7 @@ export default function Dashboard() {
               </Grid>
             </Grid>   
           </Container>
+          
         </main> 
       </Container>
       <StickyFooter /> 

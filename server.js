@@ -1,6 +1,7 @@
+
 const http_port = 4001
 const serial_port = '/dev/ttyUSB0'
-const baud_rate = 9600
+const baud_rate = 57600
 const express = require('express')
 const http = require('http')
 const socketIO = require('socket.io')
@@ -12,12 +13,19 @@ sPort.pipe(parser);
 const app = express()
 const server = http.createServer(app) // grab a server instance
 const io = socketIO(server) // This creates our socket using the server instance
-io.on('connection', socket => { // once the socket has connected
-  let lastValue // hold the previous value in this variable
-  parser.on('data', data => { // when you receive serial data
-    if (lastValue !== data) socket.emit('data', data) // if the data has changed since the last reading, emit the new data
-    lastValue = data //set lastValue to the value we have now 
-  })
-  socket.on('disconnect', () => { }) // disconnect is fired when a client leaves the server
+let counter = 0
+parser.on('data', data => { // when you receive serial data
+  let today = new Date()
+  let date = today.toDateString()
+  let time  = today.toTimeString().substring(0,8)
+  let num = Math.floor(data/4)
+  if(!isNaN(num)) {
+    let dataObj = { name: `${date} : ${time}`, y: num, x: counter }
+    io.emit('newRpm', dataObj)
+    console.log(dataObj)
+    counter++
+  }
+  io.emit('data', data) // if the data has changed since the last reading, emit the new data
 })
+ 
 server.listen(http_port, () => console.log(`Serial Socket connected @ port ${http_port}`))

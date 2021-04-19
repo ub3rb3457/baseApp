@@ -46,4 +46,5 @@ You will need to customize the .env configuration files, there's one for each ap
 * recharts
 * react-coverflow
 * react-numeric-input
+* notistack
 * more to come...
