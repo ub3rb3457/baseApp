@@ -1,4 +1,4 @@
-import React, {Fragment, useRef, useState} from 'react'
+import React, {useRef, useState} from 'react'
 import useSocket from 'use-socket.io-client'
 import { LineChart, Line, CartesianGrid, YAxis } from 'recharts'
 
@@ -13,14 +13,11 @@ function Chart(){
         }   
     })
     return (
-        <Fragment>
-            <LineChart width={600} height={300} data={pointData}>
-                <Line type="monotone" dataKey="y" stroke="#8884d8" isAnimationActive={false} />
-                <CartesianGrid stroke="#ccc" />
-                <YAxis />
-            </LineChart>
-            <p>{JSON.stringify(pointData)}</p>
-        </Fragment>
+        <LineChart width={600} height={300} data={pointData}>
+            <Line type='monotone' dataKey='y' stroke='#8884d8' isAnimationActive={false} />
+            <CartesianGrid stroke='#ccc' />
+            <YAxis />
+        </LineChart>
     )
 }
 export default Chart

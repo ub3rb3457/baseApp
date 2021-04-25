@@ -5,26 +5,24 @@ import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import Paper from '@material-ui/core/Paper'
 import RPMGauge from './RPMGauge'
-import StickyFooter from './StickyFooter'
-import RenderChart from './RenderChart'
+import Chart from './Components/Chart'
 import useStyles from './Components/styles'
 
 
 export default function Dashboard() {
   const classes = useStyles();
-  
   const fixedHeightPaperNoScroll = clsx(classes.paper, classes.fixedHeight, classes.noScroll);
 
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Container component="main" className={classes.main} maxWidth="sm">
+      <Container component="main" className={classes.main}>
         <main className={classes.content}>
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={8} lg={9}>
                 <Paper className={classes.paper}>
-                  <RenderChart />
+                  <Chart />
                 </Paper>
               </Grid>
               <Grid item xs={12} md={4} lg={3}>
@@ -39,10 +37,8 @@ export default function Dashboard() {
               </Grid>
             </Grid>   
           </Container>
-          
         </main> 
-      </Container>
-      <StickyFooter /> 
+      </Container> 
     </div>
   );
 }

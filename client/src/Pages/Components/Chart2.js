@@ -28,3 +28,5 @@ const LineChart2 = () => {
   return <Line data={chartData} options={options} />
 }
 export default LineChart2
+
+
